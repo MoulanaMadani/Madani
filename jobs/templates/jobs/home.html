@@ -1,26 +1,29 @@
 
 <!doctype html>
 <html lang="en">
-    <!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <body>
-    <header>
+  {% load staticfiles %}
+  <title>Moulana_Madani</title>
+
+  <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Madani</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Madani</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" ></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link"  href="#">Home</a>
+        <a class="nav-link"  href="{% url 'home' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Blogs</a>
+        <a class="nav-link"  href="{% static 'Trigger.pdf' %} ">Resume</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Jobs</a>
+        <a class="nav-link" href="{% url 'allblogs' %}">Blogs</a>
       </li>
     </ul>
   </div>
@@ -34,13 +37,15 @@
       <h1>Hi,I'm Madani</h1>
       <p class="lead text-muted">My name is Moulana madani, basically i'm a intermediate programmer in python,love to code, Explore a lot and i'm a student of Computer Science Engineering.   </p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Mail me!</a>
+        <a href="mailto:moulanamadhanimbyawesome@gmail.com" class="btn btn-primary my-2">Mail me!</a>
       </p>
+      <img class="img-fluid" src="{% static 'Screenshot_2019-11-07-08-20-07-236_com.instagram.android.png' %}" height="300" width="300">
     </div>
   </section>
 
   <div class="album py-5 bg-light">
     <div class="container">
+      <h2 class="text-muted">Recent Jobs:</h2>
        <div class="row">
       {% for job in jobs.all %}
         <div class="col-md-4">
